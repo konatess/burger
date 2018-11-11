@@ -1,0 +1,6 @@
+#Node bits
+node_modules/
+.env
+
+#Apple backup files
+.DS_Store
