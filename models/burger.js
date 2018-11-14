@@ -21,3 +21,6 @@ var burgerDo = {
         orm.updateOne(table, devoCol, true)
     }
 }
+
+// MODULE EXPORT
+module.exports = burgerDo;
