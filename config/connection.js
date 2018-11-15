@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
     port: 3306,
     user: "root",
     password: "",
-    database: "day_planner_db"
+    database: "burgers_db"
   });
 
 // MODULE FOR EXPORT

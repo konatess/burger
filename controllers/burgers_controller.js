@@ -2,24 +2,43 @@
 var express = require("express");
 var burgerDo = require("../models/burger");
 
-// Sets up expresss
-var app = express();
-var PORT = process.env.PORT || 8080;
+// Sets up router
+var router = express.Router();
 
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-// Static directory
-app.use(express.static("burger/public"));
-
-// Routes
-// =============================================================
-require("./app/routes/api-routes.js")(app);
-require("./app/routes/html-routes.js")(app);
-
-// Starts the server to begin listening
-// =============================================================
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+// ROUTES
+// Get route for basic display
+router.get("/index", function (req, res) {
+    burgerDo.all(function (data) {
+        var hbsObject = {
+            burgers: data
+        };
+        console.log(hbsObject);
+        res.render("index", hbsObject);
+    });
 });
+
+// Post route to create new burger
+router.post("/api/burgers", function (req, res) {
+    burgerDo.making(req.body.name, function (result) {
+        // Send back the ID of the new burger
+        res.json({ id: result.insertId });
+    });
+});
+
+// Update route
+router.put("/api/burgers", function (req, res) {
+    var id = req.params.id;
+
+    console.log("id", condition);
+
+    burgerDo.eating(id, function (result) {
+        if (result.changedRows === 0) {
+            // If no rows were changed, then the ID must not exist, so 404
+            return res.status(404).end();
+        }
+        res.status(200).end();
+    });
+});
+
+
+module.exports = router;

@@ -1,21 +1,55 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<header class="mb-5">
+    <h1 class="pt-3 pb-1 bg-soft text-center">Eat Da Burger!</h1>
+</header>
+<div class="w-75 mx-auto text-center">
+    <div class="card-deck my-3">
+        <div class="card bg-soft border-secondary p-3 mh-50">
+            <img class="w-25 mx-auto" src="assets/img/burger_sm.png" alt="whole burger">
+            <div class="card-body">
+                <h4 class="card-title">Uneaten Burgers</h4>
+                <div class="input-group input-group-sm mb-2">
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                    <fieldset disabled>
+                        <input class="form-control border border-warning bg-transparent mb-2" type="text" placeholder="{{id}}. {{burger_name}}">
+                    </fieldset>
+                    <div class="input-group-append">
+                        <button class="btn btn-warning mb-2 devour" type="button">devour</button>
+                    </div>
+                    {{/unless}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="card bg-soft border-secondary p-3 mh-50">
+            <img class="w-25 mx-auto" src="assets/img/burger_bw.png" alt="ghost burger">
+            <div class="card-body">
+                <h4 class="card-title">Eaten Burgers</h4>
+                <div class="input-group input-group-sm mb-2">
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    <fieldset disabled>
+                        <input class="form-control border border-warning bg-transparent mb-2" type="text" placeholder="{{id}}. {{burger_name}}">
+                    </fieldset>
+                    {{!-- <div class="input-group-append">
+                        <button class="btn btn-warning mb-2" type="button">devour</button>
+                    </div> --}}
+                    {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/assets/css/burger_style.css">
-  </head>
-  <body>
-      
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-  </body>
-</html>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Name Your Burger" aria-label="Recipient's username"
+            aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-warning" type="button" id="button-addon2">Build Your Burger</button>
+        </div>
+    </div>
+</div>
+<footer class="text-center pb-3 bg-soft">
+    Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> <br>
+    <a href="https://www.pexels.com/photo/carrots-food-fresh-freshness-616401/" target="_blank">Photo by Lukas from Pexels</a>
+</footer>

@@ -8,17 +8,20 @@ var devoCol = "devoured";
 
 // make orm methods into burger specific methods
 var burgerDo = {
-    eaten: function() {
-        orm.selectAll(table, devoCol, true)
+    all: function(cb) {
+        orm.selectAll(table, function(res) {
+            cb(res);
+        })
     },
-    uneaten: function() {
-        orm.selectAll(table, devoCol, false)
+    making: function(newName, cb) {
+        orm.insertOne(table, nameCol, newName, function(res) {
+            cb(res);
+        })
     },
-    making: function(newName) {
-        orm.insertOne(table, nameCol, newName)
-    },
-    eating: function() {
-        orm.updateOne(table, devoCol, true)
+    eating: function(id, cb) {
+        orm.updateOne(table, devoCol, true, "id", id, function(res) {
+            cb(res);
+        })
     }
 }
 
