@@ -16,3 +16,7 @@ footer {
 .bg-soft {
     background-color: #ffffff77
 }
+
+.burger-display {
+    overflow: scroll;
+}

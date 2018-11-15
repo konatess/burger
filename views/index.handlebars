@@ -1,12 +1,12 @@
 <header class="mb-5">
     <h1 class="pt-3 pb-1 bg-soft text-center">Eat Da Burger!</h1>
 </header>
-<div class="w-75 mx-auto text-center">
-    <div class="card-deck my-3">
-        <div class="card bg-soft border-secondary p-3 mh-50">
+<div class="w-75 mx-auto text-center h-50">
+    <div class="card-deck my-3 h-100">
+        <div class="card bg-soft border-secondary p-3">
             <img class="w-25 mx-auto" src="assets/img/burger_sm.png" alt="whole burger">
-            <div class="card-body">
-                <h4 class="card-title">Uneaten Burgers</h4>
+            <h4 class="card-title mt-2 mb-0">Uneaten Burgers</h4>
+            <div class="card-body burger-display">  
                 <div class="input-group input-group-sm mb-2">
                     {{#each burgers}}
                     {{#unless devoured}}
@@ -21,19 +21,16 @@
                 </div>
             </div>
         </div>
-        <div class="card bg-soft border-secondary p-3 mh-50">
+        <div class="card bg-soft border-secondary p-3">
             <img class="w-25 mx-auto" src="assets/img/burger_bw.png" alt="ghost burger">
-            <div class="card-body">
-                <h4 class="card-title">Eaten Burgers</h4>
+            <h4 class="card-title mt-2 mb-0">Eaten Burgers</h4>
+            <div class="card-body burger-display">
                 <div class="input-group input-group-sm mb-2">
                     {{#each burgers}}
                     {{#if devoured}}
                     <fieldset disabled>
                         <input class="form-control border border-warning bg-transparent mb-2" type="text" placeholder="{{id}}. {{burger_name}}">
                     </fieldset>
-                    {{!-- <div class="input-group-append">
-                        <button class="btn btn-warning mb-2" type="button">devour</button>
-                    </div> --}}
                     {{/if}}
                     {{/each}}
                 </div>
@@ -42,10 +39,10 @@
     </div>
 
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Name Your Burger" aria-label="Recipient's username"
-            aria-describedby="button-addon2">
+        <input type="text" class="form-control" id="burger_name" placeholder="Name Your Burger" aria-label="Name your burger"
+            aria-describedby="submit">
         <div class="input-group-append">
-            <button class="btn btn-warning" type="button" id="button-addon2">Build Your Burger</button>
+            <button class="btn btn-warning" type="button" id="submit">Build Your Burger</button>
         </div>
     </div>
 </div>
