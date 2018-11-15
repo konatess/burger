@@ -20,3 +20,8 @@ footer {
 .burger-display {
     overflow: scroll;
 }
+
+.burger-image {
+    height: 64px;
+    width: 64px;
+}
