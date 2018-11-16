@@ -22,34 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
     <!-- Burger Submission JavaScript -->
-    <script>
-        $('#submit').on('click', function (event) {
-            // Form validation: Require name
-            function validateForm() {
-                var isValid = true;
-                $("#burger_name").each(function () {
-                    if ($(this).val() === "") {
-                        isValid = false;
-                    }
-                });
-                return isValid;
-            }
-            // If validation passes
-            if (validateForm()) {
-                // Create an object of the user's data
-                var burgerData = {
-                    name: $("#burger_name").val().trim()
-                };
-                // AJAX post the data to the friends API.
-                $.post("/api/burgers", burgerData, function (data) {
-                    window.location.reload(true);
-                });
-            }
-            else {
-                alert("Your burger is missing a name!");
-            }
-        });
-    </script>
+    <script src="/assets/js/burger.js"></script>
 </body>
 
 </html>

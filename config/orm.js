@@ -20,8 +20,8 @@ var orm = {
         });
     },
     updateOne: function(tableInput, colToChange, newVal, searchCol, searchVal, cb) {
-        var queryString = "UPDATE ?? SET (?? = ?) WHERE ?? = ?";
-        connection.query(queryString, [tableInput, colToChange, searchCol, newVal, searchVal], function(err, result) {
+        var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+        connection.query(queryString, [tableInput, colToChange, newVal, searchCol, searchVal], function(err, result) {
           if (err) throw err;
           console.log(result);
           cb(result)

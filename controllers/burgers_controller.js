@@ -26,10 +26,10 @@ router.post("/api/burgers", function (req, res) {
 });
 
 // Update route
-router.put("/api/burgers", function (req, res) {
+router.put("/api/burgers/:id", function (req, res) {
     var id = req.params.id;
 
-    console.log("id", condition);
+    console.log("id", id);
 
     burgerDo.eating(id, function (result) {
         if (result.changedRows === 0) {
