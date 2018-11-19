@@ -1,26 +1,28 @@
+/* make sure page takes up full window */
 html, body {
     height: 100%;
     font-family: 'Righteous', cursive;
 }
-
+/* set background of page */
 html {
     background-image: url("../img/carrots-food-fresh-616401.jpg");
     background-size: cover;
 }
-
+/* set footer position */
 footer {
     position: sticky;
     top: 100%;
 }
-
+/* background for header, footer and two burger displays */
 .bg-soft {
     background-color: #ffffff77
 }
-
+/* burger displays are set height */
 .burger-display {
     overflow: scroll;
 }
-
+/* this is an attempt to fix a bug with bootstrap's formatting, 
+which was only partially successful */
 .burger-image {
     height: 64px;
     width: 64px;

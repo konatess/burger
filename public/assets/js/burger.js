@@ -32,7 +32,7 @@ $(function () {
             var burgerData = {
                 name: name
             };
-            // AJAX post the data to the friends API.
+            // AJAX post the data to the API.
             $.post("/api/burgers", burgerData, function (data) {
                 window.location.reload(true);
             });
